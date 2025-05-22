@@ -8,6 +8,8 @@ const previewLinksCopyButton = document.querySelector("#preview-links-copy-butto
 
 const detectedLinkCount = document.querySelector("#detected-link-count");
 
+let isLinkReady = false;
+
 function extractDriveFileId(url) {
   const match = url.match(/(?:\/d\/|id=)([a-zA-Z0-9_-]{25,})/);
   return match ? match[1] : null;
@@ -50,6 +52,9 @@ linksTextAreaElement.addEventListener("input", (e) => {
 
     detectedLinkCount.textContent = linkCount;
   }
+
+  isLinkReady = linkCount !== 0;
+  generateLinkButton.disabled = e.target.value.length === 0;
 });
 
 generateLinkButton.addEventListener("click", (e) => {
@@ -63,11 +68,18 @@ generateLinkButton.addEventListener("click", (e) => {
     if (!fileID) return;
 
     directLinks += `https://drive.google.com/uc?export=download&id=${fileID}\n`;
-    previewLinks += `https://lh3.googleusercontent.com/d/${fileID}}\n`;
+    previewLinks += `https://lh3.googleusercontent.com/d/${fileID}\n`;
   });
 
   directTextAreaElement.value = directLinks;
   previewLinkTextAreaElement.value = previewLinks;
+
+  directLinksCopyButton.disabled = !isLinkReady;
+  previewLinksCopyButton.disabled = !isLinkReady;
+
+  if (!isLinkReady) {
+    alert("No Google Drive link detected in the input. Please enter at least one valid Google Drive link.");
+  }
 });
 
 let directLinksCopyTimeout;

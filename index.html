@@ -38,7 +38,7 @@
 
           <textarea id="links-textarea" class="form-control my-2" placeholder="Google Drive Links"></textarea>
 
-          <button id="generate-link-button" class="btn btn-primary d-block w-100 fw-bold">Generate</button>
+          <button id="generate-link-button" class="btn btn-primary d-block w-100 fw-bold" disabled>Generate</button>
         </section>
 
         <section class="bg-white border p-3 mt-3">
@@ -48,8 +48,10 @@
           <div class="mb-3">
             <h3 class="h6">Direct Download</h3>
             <p class="alert alert-secondary m-0">Use these links to start a direct file download.</p>
-            <textarea id="direct-links-textarea" class="form-control my-2" placeholder="Google Drive Links"></textarea>
-            <button id="direct-links-copy-button" class="btn btn-outline-primary d-block w-100 fw-bold"><i class="fa fa-clipboard fa-fw"></i></button>
+            <textarea id="direct-links-textarea" class="form-control my-2" placeholder="Google Drive Links" readonly></textarea>
+            <button id="direct-links-copy-button" class="btn btn-outline-primary d-block w-100 fw-bold" disabled>
+              <i class="fa fa-clipboard fa-fw"></i>
+            </button>
           </div>
 
           <div>
@@ -57,8 +59,10 @@
             <p class="alert alert-secondary m-0">
               Use these links to preview or open the file as a thumbnail <strong>(Only works if it has any)</strong>
             </p>
-            <textarea id="preview-links-textarea" class="form-control my-2" placeholder="Google Drive Links"></textarea>
-            <button id="preview-links-copy-button" class="btn btn-outline-primary d-block w-100 fw-bold"><i class="fa fa-clipboard fa-fw"></i></button>
+            <textarea id="preview-links-textarea" class="form-control my-2" placeholder="Google Drive Links" readonly></textarea>
+            <button id="preview-links-copy-button" class="btn btn-outline-primary d-block w-100 fw-bold" disabled>
+              <i class="fa fa-clipboard fa-fw"></i>
+            </button>
           </div>
         </section>
       </div>
