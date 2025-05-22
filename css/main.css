@@ -2,8 +2,8 @@
   max-width: 750px !important;
 }
 
-#links-textarea {
-  min-height: 100px;
+textarea {
+  min-height: 100px !important;
   resize: none;
   white-space: pre;
 }
