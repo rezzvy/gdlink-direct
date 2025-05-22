@@ -1,0 +1,9 @@
+.container {
+  max-width: 750px !important;
+}
+
+#links-textarea {
+  min-height: 100px;
+  resize: none;
+  white-space: pre;
+}
